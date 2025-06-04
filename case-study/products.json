@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "image": "assortment-in-heart-shaped-box.jpg",
+      "description": "Chocolate cream assortment",
+      "price": 19.99
+    },
+    {
+      "id": 2,
+      "image": "chocolate-brownie.jpg",
+      "description": "Chocolate brownie",
+      "price": 3.99
+    },
+    {
+      "id": 3,
+      "image": "chocolate-candies.jpg",
+      "description": "Chocolate candy assortment",
+      "price": 9.99
+    },
+    {
+      "id": 4,
+      "image": "dark-chocolate-pieces.jpg",
+      "description": "Dark chocolate pieces",
+      "price": 6.99
+    }
+  ]
+}

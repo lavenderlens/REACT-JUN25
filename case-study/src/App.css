@@ -4,3 +4,13 @@
   padding: 2rem;
   text-align: center;
 }
+:root{
+  --primaryBackgroundColour: burlywood;
+}
+main{
+  display: grid;
+  place-items: center;
+}
+section > button{
+  background-color: var(--primaryBackgroundColour);
+}

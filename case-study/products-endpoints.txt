@@ -1,0 +1,5 @@
+GET
+https://dummyjson.com/c/c033-e057-4013-b1e7
+
+POST
+https://dummyjson.com/c/9bdc-c1c3-41fa-97fa

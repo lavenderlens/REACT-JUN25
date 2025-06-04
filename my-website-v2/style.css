@@ -1,0 +1,143 @@
+@font-face {
+  font-family: dancing-script;
+  src: url(DancingScript-VariableFont_wght.ttf);
+}
+:root {
+  --primaryFont: verdana;
+  --secondaryFont: courier;
+  --headingFont: dancing-script;
+  --textColour: black;
+  --textShadowColour: lightgrey;
+  --boxShadowColour: grey;
+  --primaryBackgroundColour: burlywood;
+  --secondaryBackgroundColour: brown;
+  --borderColour: grey;
+  --borderRadius: 5px;
+}
+body {
+  margin: 0;
+}
+h1 {
+  margin: 21px;
+  text-align: center;
+  text-shadow: 3px 3px 2px var(--textShadowColour);
+  font-family: var(--headingFont);
+  font-size: 3rem;
+  color: var(--textColour);
+}
+h3 {
+  text-align: center;
+  font-family: var(--headingFont);
+  font-size: 2rem;
+  color: var(--textColour);
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.underlined {
+  text-decoration: underline;
+}
+a.underlined:hover {
+  color: var(--secondaryBackgroundColour);
+}
+p,
+ul,
+ol,
+address {
+  font-family: var(--primaryFont);
+  font-size: 90%;
+  font-style: normal;
+  line-height: 1.7;
+  color: var(--textColour);
+}
+p::selection {
+  background-color: var(--secondaryBackgroundColour);
+  color: white;
+}
+nav > ul {
+  padding: 0;
+  text-align: center;
+  background-color: var(--primaryBackgroundColour);
+}
+nav > ul > li {
+  display: inline;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-family: var(--secondaryFont);
+  font-size: 1rem;
+  text-transform: lowercase;
+}
+nav > ul > li > a#active {
+  font-weight: bold;
+}
+main {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+div.products {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+div.product {
+  max-width: 250px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--borderColour);
+  border-radius: var(--borderRadius);
+  padding: 2rem;
+}
+div.product > img {
+  max-width: 100%;
+  border-radius: var(--borderRadius);
+  /* smoother */
+  transition: all 0.3s;
+}
+div.product:nth-of-type(odd) > img:hover {
+  transform: rotate(-3deg);
+}
+div.product:nth-of-type(even) > img:hover {
+  transform: rotate(3deg);
+}
+div.product > p {
+  text-align: center;
+}
+div.product > p:nth-of-type(2) {
+  font-size: 125%;
+  font-weight: bold;
+}
+div.product > button {
+  display: block;
+  margin: auto;
+  padding: 0.5rem;
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--borderColour);
+  border-radius: var(--borderRadius);
+  box-shadow: 3px 3px var(--boxShadowColour);
+  background-color: var(--primaryBackgroundColour);
+  color: var(--textColour);
+  font-family: var(--primaryFont);
+  font-weight: bold;
+  cursor: pointer;
+}
+div.product > button:active {
+  box-shadow: none;
+}
+@media screen and (min-width: 1025px) {
+  h1 {
+    margin: 42px;
+    font-size: 4rem;
+  }
+  nav > ul > li {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-size: 1.5rem;
+  }
+  main {
+    margin-left: 25%;
+    margin-right: 25%;
+  }
+}

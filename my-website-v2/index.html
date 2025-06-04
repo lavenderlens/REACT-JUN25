@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- 
+        The head element is not rendered by the browser. 
+        It serves as a placeholder for metadata and references to other files. 
+    -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chocolate Box</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      nav > ul {
+        margin-bottom: 0;
+      }
+      div#videoContainer {
+        display: none;
+        height: 300px;
+        overflow: hidden;
+      }
+      div#videoContainer > video {
+        margin-top: -300px;
+        max-width: 100%;
+      }
+      div#videoContainer > p {
+        position: relative;
+        margin: 0;
+        top: 70px;
+        text-align: center;
+        font-family: var(--headingFont);
+        font-size: 5rem;
+        color: white;
+      }
+      main {
+        margin-left: 0;
+        margin-right: 0;
+      }
+      @media screen and (min-width: 1025px) {
+        div#videoContainer {
+          display: block;
+        }
+      }
+    </style>
+    <script src="./script.js" type="module"></script>
+  </head>
+  <body>
+    <header>
+      <h1><a href="index.html">Chocolate Box</a></h1>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">The Process</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div id="videoContainer">
+      <p>Homemade chocolate since 2007</p>
+      <video src="chocolate.mp4" autoplay loop muted></video>
+    </div>
+
+    <main>
+      <h3>Products</h3>
+      <div class="products"></div>
+    </main>
+  </body>
+</html>
