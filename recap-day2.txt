@@ -1,0 +1,66 @@
+1. What are the 3 primary benefits of React:
+Re-useable components
+FAST: Renders the DOM from JS, so no page reloads
+(Relatively!) Non-opinionated - a library NOT a framework
+Nowadays though, the docs suggest using as part of a framework eg NextJS
+Huge open source community, well supported
+JSX (a type of XML) is easy to code in, 
+no HTML elements as strings, no low-level commands like
+document.cretaeElement()
+
+2. How to create a template React project (using Vite):
+> npm create vite@latest
+OR
+> npx create-vite
+
+3. To install all dependencies into set of Node modules:
+> npm install
+OR
+> npm i
+
+4. To start a development server in Vite project:
+> npm run dev
+
+5. What is JSX?
+HTML in JS, in a React projectJSX stands for JavaScript and XML
+means we can make up our own tag names
+they may be either wraparound OR self-closing
+see children demo from last night carried one
+
+with JSX:
+<p>some content</p>
+
+without JSX:
+React.createElement("p", "null", "some content");
+
+6. How to embed expressions/variables/functions into JSX:
+{}
+
+7. How does one handle conditional statements in JSX?
+You don't use if-else!
+if we want nothing or something:
+&& 
+OR
+if we want something or something else:
+expression ? value if true : value if false
+
+8. What is a prop?
+how data is transferred from parent to child components
+one-way: top-down
+read only: you should not mutate props in a component
+you'll get a syntax error, but even if you could
+the component would receive a fresh copy of their original valueon the next re-Render
+that next re-render may be triggered by ANY and EVERY other component as well
+
+9. What should a child component NOT do with its props received?
+read only: you should not mutate props in a component
+
+10. What should one do in the JSX to reference a prop? 
+function myComponent(props){
+    {props.myProp}
+}
+OR
+function myComponent({myProp}){
+    {myProp}
+}
+
