@@ -1,0 +1,55 @@
+Day 3 Recap
+----------
+1. What does the useState function return?
+an array
+state
+function to update state
+
+2. In Object Oriented Programming such as Java, 
+what might be the equivalent of what is returned in question 1?
+getters - return the state
+setters - update the state
+
+3. State must NOT be modified directly. Why?
+React doesn't know state has been changed.
+ 
+4. Declaring a useState hook passes in an initial state. 
+What datatypes may that state be?
+ANYTHING
+ 
+5. Calling a useState setter function is an async operation. 
+What does that mean (general terms)
+It is queued for execution on the JS event loop
+ALL synchronous code must be run first
+
+6. Is it legitimate to call useState many times in the same component?
+Yes
+
+7. What should we ideally wrap in a useEffect call?
+ANYTHING apart from:
+Hooks declarations
+Functions
+So for instance:
+setIntervals
+setTimeouts
+Date/Time operations
+localStorage
+window object props such as title
+EVEN console.log!
+
+8. UseEffect has a second argument to control when it fires: what is this?
+dependency array 
+
+9. What should be in this second argument to ensure the side effect only fires ONCE, 
+on component mount?
+empty array
+
+10. In JSX, the word class is a reserved keyword. 
+What is the name of the attribute we must place on an element 
+to call the CSS class(es) thereon?
+className
+
+
+
+
+___________________________________________________________

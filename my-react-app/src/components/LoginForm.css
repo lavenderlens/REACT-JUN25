@@ -1,0 +1,17 @@
+input,
+label,
+button {
+  display: block;
+}
+input {
+  margin-bottom: 1rem;
+}
+#reset {
+  font-size: 0.8rem;
+  color: #aaa;
+  position: absolute;
+  right: 50px;
+}
+#submit {
+  background-color: rebeccapurple;
+}

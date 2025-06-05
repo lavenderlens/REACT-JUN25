@@ -1,42 +1,25 @@
 import "./App.css";
-import { Counter } from "./components/Counter";
-import { SideEffect } from "./components/SideEffect";
-import { TestOnClick } from "./components/TestOnClick";
-// import { Grandparent } from "./components/children-prop-drilling/Grandparent";
-// import { Grandparent } from "./components/children/Grandparent";
-// import { Parent } from "./components/children/Parent";
-// import { Child } from "./components/children/Child";
-// import { Grandchild } from "./components/children/Grandchild";
-
+import { LoginForm } from "./components/LoginForm";
+import { useState } from "react";
+import { LoginWelcome } from "./components/LoginWelcome";
 function App() {
+  const [credentials, setCredentials] = useState({
+    username: "",
+    password: "",
+  });
+  function handleLogin(newCredentials) {
+    setCredentials(newCredentials);
+  }
   return (
     <>
-      <SideEffect />
-      {/* <Counter /> */}
-      {/* <TestOnClick /> */}
-      {/* <section>
-        <div>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero,
-            optio atque dolor ipsa et molestiae perferendis dolorum distinctio!
-            Harum, facilis dolor quod neque commodi earum cupiditate? Minus
-            laudantium reprehenderit quaerat.
-          </p>
-        </div>
-      </section> */}
-      {/* demo nested custom components using children prop */}
-      {/* <Grandparent
-        parentprop="prop for Parent"
-        childprop="prop for Child"
-        grandchildprop="prop for Grandchild"
-      /> */}
-      {/* <Grandparent>
-        <Parent>
-          <Child>
-            <Grandchild grandchildprop="prop for Grandchild" />
-          </Child>
-        </Parent>
-      </Grandparent> */}
+      <LoginForm onLogin={handleLogin} />
+      {console.log(credentials)}
+      <LoginWelcome userinfo={credentials} />
+      {/* information is now shared between THREE components */}
+      {/* it originates in the form as form state */}
+      {/* a function is passed down as props from the parent */}
+      {/* form state is passed up via the function into the parent */}
+      {/* and then is passed down as props into a different component */}
     </>
   );
 }

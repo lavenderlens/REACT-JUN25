@@ -1,74 +1,9 @@
 import "./App.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { NewProductForm } from "./components/NewProductForm";
 function App() {
   const [remoteData, setRemoteData] = useState([]);
-  // const products = [
-  //   {
-  //     id: 1,
-  //     image: "assortment-in-heart-shaped-box.jpg",
-  //     description: "Chocolate cream assortment",
-  //     price: 19.99,
-  //   },
-  //   {
-  //     id: 2,
-  //     image: "chocolate-brownie.jpg",
-  //     description: "Chocolate brownie",
-  //     price: 3.99,
-  //   },
-  //   {
-  //     id: 3,
-  //     image: "chocolate-candies.jpg",
-  //     description: "Chocolate candy assortment",
-  //     price: 9.99,
-  //   },
-  //   {
-  //     id: 4,
-  //     image: "dark-chocolate-pieces.jpg",
-  //     description: "Dark chocolate pieces",
-  //     price: 6.99,
-  //   },
-  // ];
-  // fetch("https://dummyjson.com/c/c033-e057-4013-b1e7").then((response) =>
-  //   console.log(response)
-  // );//logs whole response object - very ahrd to drill down for data
-  // fetch("https://dummyjson.com/c/c033-e057-4013-b1e7").then((response) =>
-  //   console.log(response.json())
-  // );//logs a promise object
-  // fetch("https://dummyjson.com/c/c033-e057-4013-b1e7")
-  //   .then((response) => response.json())
-  //   .then((response) => console.log(response)); //logs our data
-  //using axios
-  // axios
-  //   .get("https://dummyjson.com/c/c033-e057-4013-b1e7")
-  //   .then((response) => console.log(response.data.products)); //logs our data
-
-  // fetching data from a remote API is a side effect - happens after react
-  // so we should wrap the axios call in a useEffect
-  // useEffect(() => {
-  //   axios
-  //     .get("https://dummyjson.com/c/c033-e057-4013-b1e7")
-  //     .then((response) => console.log(response.data.products)); //logs our data
-  // }, []); //fetches ONCE, when component loads
-
-  // how to get data into the elements?
-  // a lot of new React devs try this:
-  // let data;
-  // useEffect(() => {
-  //   axios
-  //     .get("https://dummyjson.com/c/c033-e057-4013-b1e7")
-  //     .then((response) => (data = response.data.products)); //logs our data
-  // }, []); //fetches ONCE, when component loads
-  // console.log(data); //undefined
-  //ALL synchronous code will get executed before ANY async (ie, the axios call)
-
-  //INSTEAD declare state to hold the data
-  //pass state setter function into aynsc chain
-  //useState setter is ALSO async
-  //both the axios call and the setter will be placed on the event loop
-  //both will be excuted in order
-  //then the rsult will be held in state for the component to use
-  // OR pass down as props into other components
   useEffect(() => {
     axios
       .get("https://dummyjson.com/c/c033-e057-4013-b1e7")
@@ -77,6 +12,18 @@ function App() {
   useEffect(() => {
     console.log(remoteData);
   }, [remoteData]);
+
+  // post request does NOT have to be wrapped in a useEffect
+  // it is not a side effect, but is throroughly predictable
+  // you might get a failure message from the API
+  // in which case you can handle it in a catch block
+  // within your async chain
+  function handleAddNewProduct(newProduct) {
+    axios
+      .post("https://dummyjson.com/c/9bdc-c1c3-41fa-97fa")
+      .then(setRemoteData([newProduct, ...remoteData]))
+      .catch(() => console.log("something went wrong"));
+  }
   const sectionStyles =
     "max-w-xs place-items-center border border-black rounded-lg p-6 my-4 w-80";
   const buttonStyles = "p-2 font-bold mt-4";
@@ -91,6 +38,9 @@ function App() {
         iste, corporis, eum magni assumenda autem fugit quibusdam. Aliquam, sit
         vitae.
       </p>
+      <main>
+        <NewProductForm onAddNewProduct={handleAddNewProduct} />
+      </main>
       <main>
         {remoteData.map((product) => (
           <section key={product.id} className={sectionStyles}>

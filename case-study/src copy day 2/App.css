@@ -14,8 +14,3 @@ main{
 section > button{
   background-color: var(--primaryBackgroundColour);
 }
-section > img{
-  width:18rem;
-  height:calc(18rem * (213/320));
-  object-fit:cover;
-}
