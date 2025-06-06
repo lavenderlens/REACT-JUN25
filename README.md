@@ -1,1 +1,3 @@
-Status `working`. Will change to **COMPLETE** when all materials uploaded post course.
+Status `COMPLETE`. All materials uploaded post course.
+
+But watch this space for a fixed case study.

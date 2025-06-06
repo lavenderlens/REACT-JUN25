@@ -1,0 +1,21 @@
+header {
+  background-image: url("../images/10099577_36er_Pralines_Alkohol_1_1.webp");
+  height: 4rem;
+  background-size: 100%;
+  background-position-y: -100px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: -2px -1px 9px rgba(0, 0, 0, 0.86);
+}
+@media (orientation: landscape) {
+  header {
+    background-position-y: -200px;
+  }
+}
+@media (min-width: 900px) {
+  header {
+    background-position-y: -600px;
+  }
+}

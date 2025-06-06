@@ -1,0 +1,49 @@
+Recap/quiz DAY 4
+
+
+1. In JSX and in HTML5, what advantage does a correctly configured label element give to a form field?
+Extends the touch target of the imput element to include the label, useful on mobile
+
+2. What is the keyword for a "for" attribute on a JSX label element?
+htmlFor
+
+3. What is the keyword for an autofocus attribute on a JSX form field?
+autoFocus
+
+4. Can the "required" attribute of a form input exist in React? Why/why not?
+No - HTML5 form validation only occurs when the default submit behaviour is triggered 
+ie AFTER react has built the DOM
+
+5. In conventional HTML5, what is a button element's default type attribute,
+when inside a form, and how may we override this default behaviour in React?
+type="submit"
+way 1: change to type="button"
+way 2: event.preventDefault() as first line in handler function
+IF only one line in handler function, using way 1 facilitates an inline arrow function
+More readable
+
+6. What type of prop must we pass for a child component to communicate with a parent?
+A function
+Known as lifting state up pattern
+
+7. Asynchronous programming is to do something later, and move the work off the main thread.
+Where do functions go in JS memory when this happens?
+they are queued to be placed on the event loop
+
+8. Where must we perform ALL work associated with asynchronous data FETCHING?
+A - in a useEffect
+B - in the async chain
+
+9. Async work must be carried out within the async chain. What may we pass in to a thenable to achieve this?
+A function
+That function is normally a useState setter of some sort
+So async data goes into react component state
+useState setters are async themselves so will not complete too soon
+We could always pass in our own custom functions to the async chain
+This means, however, that we decide not only what data to extract but how to use it 
+Passing in a useState setter loads data into state
+Separates concerns of how we use it 
+
+10. What may we do in React to clean up the JSX when using Tailwind classes ?
+declare a variable for all the classes
+pass this variable in as a JSX expression

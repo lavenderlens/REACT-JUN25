@@ -18,4 +18,38 @@ section > img{
   width:18rem;
   height:calc(18rem * (213/320));
   object-fit:cover;
+/* //for UI image effects */
+transition: all 0.3s;
+
+}
+nav{
+display: inline-flex;
+position:sticky;
+top:0px;
+background-color: rgb(255,255,255,0.85);
+}
+
+.nav-li{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 8em;
+  height: 4em;
+  border: 1px solid #AAA;
+  box-shadow: 0px 0px 6px rgba(255, 255, 255, 0.4);
+}
+.nav-link:visited{
+  color: #999;
+}
+.basket-total{
+  display: inline;
+}
+/* //for UI image effects */
+@media (hover: hover) {
+  section:nth-of-type(odd) > img:hover {
+    transform: rotate(-3deg);
+  }
+  section:nth-of-type(even) > img:hover {
+    transform: rotate(3deg);
+  }
 }

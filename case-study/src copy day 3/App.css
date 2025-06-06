@@ -1,0 +1,21 @@
+#root {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+:root{
+  --primaryBackgroundColour: burlywood;
+}
+main{
+  display: grid;
+  place-items: center;
+}
+section > button{
+  background-color: var(--primaryBackgroundColour);
+}
+section > img{
+  width:18rem;
+  height:calc(18rem * (213/320));
+  object-fit:cover;
+}

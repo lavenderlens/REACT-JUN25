@@ -2,6 +2,9 @@ import "./App.css";
 import { LoginForm } from "./components/LoginForm";
 import { useState } from "react";
 import { LoginWelcome } from "./components/LoginWelcome";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { Home } from "./components/Home";
+import { Counter } from "./components/Counter";
 function App() {
   const [credentials, setCredentials] = useState({
     username: "",
@@ -12,14 +15,29 @@ function App() {
   }
   return (
     <>
-      <LoginForm onLogin={handleLogin} />
-      {console.log(credentials)}
-      <LoginWelcome userinfo={credentials} />
-      {/* information is now shared between THREE components */}
-      {/* it originates in the form as form state */}
-      {/* a function is passed down as props from the parent */}
-      {/* form state is passed up via the function into the parent */}
-      {/* and then is passed down as props into a different component */}
+      <BrowserRouter>
+        <h1>Welcome</h1>
+        <nav>
+          <Link className="nav-link" to="/">
+            <li className="nav-li">Home</li>
+          </Link>
+        </nav>
+        <nav>
+          <Link className="nav-link" to="/form">
+            <li className="nav-li">Form</li>
+          </Link>
+        </nav>
+        <nav>
+          <Link className="nav-link" to="/counter">
+            <li className="nav-li">Counter</li>
+          </Link>
+        </nav>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/form" element={<LoginForm />} />
+          <Route path="/counter" element={<Counter />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
